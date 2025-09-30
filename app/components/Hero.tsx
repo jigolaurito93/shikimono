@@ -7,7 +7,7 @@ const Hero = () => {
       {/* Left side image */}
       <div className="w-xl">
         <Image
-          src="/claytonshot.png"
+          src="/public/claytonshot.png"
           alt="hero"
           width={1000}
           height={1000}
