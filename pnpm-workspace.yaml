@@ -1,0 +1,4 @@
+packages:
+  - '.'   # include your project
+neverBuiltDependencies: []
+dangerouslyAllowAllBuilds: true
