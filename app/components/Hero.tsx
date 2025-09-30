@@ -22,7 +22,7 @@ const Hero = () => {
           We weave luxury into every fiber of our soft velvety mats,
           transforming spaces with elegance and comfort.
         </p>
-        <button className="px-6 py-3 bg-black cursor-pointer text-white rounded-lg hover:bg-gray-800 transition">
+        <button className="px-6 py-3 bg-black cursor-pointer text-white rounded-md hover:bg-gray-800 transition">
           Shop Now
         </button>
       </div>
