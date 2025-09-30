@@ -3,6 +3,7 @@ import Image from "next/image";
 import { FaCartArrowDown } from "react-icons/fa6";
 import { CiUser } from "react-icons/ci";
 import { CiSearch } from "react-icons/ci";
+import Link from "next/link";
 
 const Navbar = () => {
   return (
@@ -11,15 +12,19 @@ const Navbar = () => {
         <Image src="/swathelogo.png" alt="logo" width={200} height={100} />
       </div>
       <ul className="flex gap-8 items-center font-medium text-lg">
-        <li className="cursor-pointer underline">Home</li>
-        <li className="cursor-pointer">Shop</li>
+        <Link className="cursor-pointer" href="/">
+          Home
+        </Link>
+        <Link className="cursor-pointer" href="/products">
+          Products
+        </Link>
         <li className="cursor-pointer">About</li>
         <li className="cursor-pointer">FAQs</li>
         <li className="cursor-pointer">Contact</li>
-        <div className="flex gap-4 text-2xl">
-          <FaCartArrowDown />
-          <CiUser />
-          <CiSearch />
+        <div className="flex gap-6 text-2xl pl-20">
+          <FaCartArrowDown className="cursor-pointer" />
+          <CiUser className="cursor-pointer" />
+          <CiSearch className="cursor-pointer" />
         </div>
       </ul>
     </div>
