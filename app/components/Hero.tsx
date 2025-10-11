@@ -13,7 +13,7 @@ const Hero = () => {
           height={1000}
           className="object-cover w-full h-full"
         />
-        <div className="hidden md:flex lg:hidden absolute top-20 pl-14 pr-28 text-4xl leading-14 font-medium text-neutral-700">"Where softness meets style, creating spaces for play, connection, and timeless memories"</div>
+        <div className="hidden md:flex lg:hidden absolute top-20 pl-14 pr-28 text-4xl leading-14 font-medium text-neutral-700">&quotWhere softness meets style, creating spaces for play, connection, and timeless memories&quot</div>
       </div>
       {/* Left side image */}
 
@@ -21,7 +21,7 @@ const Hero = () => {
       <div className="flex-1 lg:flex lg:flex-col justify-center items-center lg:gap-4 lg:px-12 2xl:px-36 px-7 lg:py-12 ">
         <h1 className="hidden lg:flex text-8xl font-bold font-mochiy-pop">Shikimono</h1>
         <p className="text-center md:hidden lg:flex lg:px-6 xl:px-2 text-2xl my-8 font-medium font-m-plus-1">
-          "Where softness meets style, creating spaces for play, connection, and timeless memories"
+        &quotWhere softness meets style, creating spaces for play, connection, and timeless memories&quot
         </p>
         <button className="md:hidden lg:flex px-6 py-3 bg-black cursor-pointer text-white rounded-md hover:bg-gray-800 transition">
           Shop Now

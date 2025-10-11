@@ -21,7 +21,7 @@ const Faqs = () => {
       icon: <GoPackage className="text-2xl" />,
       title: "Packaging",
       content:
-        "Shikimono Comfort Mats are folded and vacuum sealed for easy shipping to your doorstep. It is normal to see creases and may appear thin when opened. Allow 3–7 days until it goes back to its original fluffy self.",
+        "Shikimono Comfort Mats are folded and vacuum sealed for easy shipping to your doorstep. It is normal to see creases and may appear thin when opened. Allow 3to7 days until it goes back to its original fluffy self.",
     },
     {
       icon: <TbArrowBackUp className="text-2xl" />,
@@ -52,12 +52,12 @@ const Faqs = () => {
       icon: <IoIosCheckboxOutline className="text-2xl" />,
       title: "More questions?",
       content:
-        "Send us a message on Instagram @shikimono.ph or email hello@shikimono.com — we&apos;d love to help!",
+        "Send us a message on Instagram @shikimono.ph or email hello@shikimono.com — wed love to help!",
     },
   ];
 
   return (
-    <div className="py-16">
+    <div className="pb-16 md:py-12 lg:py-16">
       <div className="w-full text-center text-xs py-4 font-m-plus-1">
         KNOW MORE ABOUT OUR PRODUCTS
       </div>
@@ -79,9 +79,8 @@ const Faqs = () => {
                   <div className="hover:underline">{item.title}</div>
                 </div>
                 <MdOutlineKeyboardArrowDown
-                  className={`text-2xl transition-transform duration-300 ${
-                    dropdownOpen === index ? "rotate-180" : ""
-                  }`}
+                  className={`text-2xl transition-transform duration-300 ${dropdownOpen === index ? "rotate-180" : ""
+                    }`}
                 />
               </div>
 
@@ -103,7 +102,7 @@ const Faqs = () => {
         </div>
 
         {/* RIGHT SIDE (IMAGE) */}
-        <div className="w-[500px]">
+        <div className="hidden lg:flex w-[500px]">
           <Image
             src="/prod3.png"
             alt="faq1"
