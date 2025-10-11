@@ -107,9 +107,9 @@ const Navbar = () => {
       </div>
 
       {/* Logo */}
-      <div className="w-5xl flex justify-center lg:justify-start">
+      <Link href={"/"} className="w-5xl flex justify-center lg:justify-start">
         <Image src="/swathelogo.png" alt="logo" width={180} height={100} />
-      </div>
+      </Link>
       {/* Logo */}
 
       {/* Mobile Icons */}
