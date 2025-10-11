@@ -61,7 +61,7 @@ const Products = () => {
         <div>4 products</div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 py-6">
+      <div className="gap-x-2 gap-y-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 md:gap-6 py-6">
         {productList.map((p, i) => (
           <ProductPeek key={i} {...p} />
         ))}

@@ -26,7 +26,7 @@ const ProductPeek: React.FC<ProductPeekProps> = ({
         className="aspect-square w-full object-cover rounded-sm"
       />
 
-      <div className="text-center py-3">
+      <div className="text-center pt-3">
         <div className="text-sm text-gray-500">{subtitle}</div>
         <div className=" text-lg font-medium">{title}</div>
         <div className="">{price}</div>
