@@ -12,7 +12,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="flex w-full justify-between items-center py-4 px-5 md:px-20 bg-white shadow-sm relative font-m-plus-1">
+    <div className="flex w-full justify-between items-center py-4 px-5 md:px-20 xl:px-28 bg-white shadow-sm relative font-m-plus-1">
 
       {/* Mobile Menu Icon */}
       <div className="lg:hidden text-2xl cursor-pointer" onClick={() => setMenuOpen(!menuOpen)}>
@@ -52,9 +52,10 @@ const Navbar = () => {
       </div>
 
       {/* Logo */}
-      <div className="w-5xl flex justify-center">
+      <div className="w-5xl flex justify-center lg:justify-start">
         <Image src="/swathelogo.png" alt="logo" width={180} height={100} />
       </div>
+      {/* Logo */}
 
       {/* Mobile Icons */}
       <div className="flex gap-5 md:gap-8 lg:hidden">
@@ -63,12 +64,14 @@ const Navbar = () => {
       </div>
 
       {/* Desktop Menu */}
-      <ul className="hidden lg:flex gap-8 items-center font-medium text-lg">
-        <Link href="/" className="cursor-pointer">Home</Link>
-        <Link href="/products" className="cursor-pointer">Products</Link>
-        <li className="cursor-pointer">About</li>
-        <li className="cursor-pointer">FAQs</li>
-        <li className="cursor-pointer">Contact</li>
+      <ul className="hidden lg:flex gap-5 items-center font-medium text-lg text-[#6dc4b7] pl-8">
+        <div className="flex items-center gap-5 lg:gap-10">
+          <Link href="/" className="cursor-pointer">Home</Link>
+          <Link href="/products" className="cursor-pointer">Products</Link>
+          <li className="cursor-pointer">About</li>
+          <li className="cursor-pointer">FAQs</li>
+          <li className="cursor-pointer">Contact</li>
+        </div>
 
         <div className="flex gap-6 text-2xl pl-20">
           <FaCartArrowDown className="cursor-pointer" />
