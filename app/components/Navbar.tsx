@@ -12,7 +12,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="flex w-full justify-between items-center py-4 px-5 lg:px-20 bg-white shadow-sm relative font-m-plus-1">
+    <div className="flex w-full justify-between items-center py-4 px-5 md:px-20 bg-white shadow-sm relative font-m-plus-1">
 
       {/* Mobile Menu Icon */}
       <div className="lg:hidden text-2xl cursor-pointer" onClick={() => setMenuOpen(!menuOpen)}>
@@ -24,7 +24,7 @@ const Navbar = () => {
         className={`fixed top-[147px] left-0 h-[calc(100vh-107px)] w-full shadow-xl flex flex-col items-center justify-between py-10 font-medium text-lg lg:hidden transition-transform duration-500 ease-in-out z-50 ${menuOpen ? "translate-x-0" : "-translate-x-full"
           }`}
       >
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-8 md:textg-">
           <Link href="/" onClick={() => setMenuOpen(false)}>Home</Link>
           <Link href="/products" onClick={() => setMenuOpen(false)}>Products</Link>
           <Link href="#" onClick={() => setMenuOpen(false)}>About</Link>
@@ -39,7 +39,7 @@ const Navbar = () => {
             <div>Log In</div>
           </div>
           {/* Icons */}
-          <div className="text-2xl flex gap-10">
+          <div className="text-2xl flex gap-14 justify-center">
             <Link href={"/"}><FaFacebook /></Link >
             <Link href={"/"}><FaInstagram /></Link >
             <Link href={"/"}><FaTiktok /></Link >
@@ -57,7 +57,7 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Icons */}
-      <div className="flex gap-5 lg:hidden">
+      <div className="flex gap-5 md:gap-8 lg:hidden">
         <CiSearch className="cursor-pointer text-2xl text-[#6dc4b7]" />
         <FaCartArrowDown className="cursor-pointer text-2xl text-[#6dc4b7]" />
       </div>
