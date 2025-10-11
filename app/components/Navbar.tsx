@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FaCartArrowDown } from "react-icons/fa6";
@@ -7,29 +7,80 @@ import { CiUser, CiSearch } from "react-icons/ci";
 import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
 import { FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa";
 
+interface NavLinksDesktop {
+  label: string;
+  href: string;
+}
+
+const navLinksDesktop: NavLinksDesktop[] = [
+  {
+    label: "Home",
+    href: "/",
+  },
+  {
+    label: "Products",
+    href: "/products",
+  },
+  {
+    label: "About",
+    href: "/",
+  },
+  {
+    label: "FAQs",
+    href: "/",
+  },
+  {
+    label: "Contact",
+    href: "/",
+  },
+];
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [menuOpen]);
+
   return (
     <div className="flex w-full justify-between items-center py-4 px-5 md:px-20 xl:px-28 bg-white shadow-sm relative font-m-plus-1">
-
       {/* Mobile Menu Icon */}
-      <div className="lg:hidden text-2xl cursor-pointer" onClick={() => setMenuOpen(!menuOpen)}>
-        {menuOpen ? <RxCross2 className="text-[#6dc4b7]" /> : <RxHamburgerMenu className="text-[#6dc4b7]" />}
+      <div
+        className="lg:hidden text-2xl cursor-pointer"
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        {menuOpen ? (
+          <RxCross2 className="text-[#6dc4b7]" />
+        ) : (
+          <RxHamburgerMenu className="text-[#6dc4b7]" />
+        )}
       </div>
 
       {/* Mobile Dropdown with transition */}
       <div
-        className={`fixed top-[147px] left-0 h-[calc(100vh-107px)] w-full shadow-xl flex flex-col items-center justify-between py-10 font-medium text-lg lg:hidden transition-transform duration-500 ease-in-out z-50 ${menuOpen ? "translate-x-0" : "-translate-x-full"
-          }`}
+        className={`fixed top-[147px] left-0 h-[calc(100vh-107px)] w-full shadow-xl bg-white flex flex-col items-center justify-between py-10 font-medium text-lg lg:hidden transition-transform duration-500 ease-in-out z-50 ${
+          menuOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
       >
-        <div className="flex flex-col gap-8 md:textg-">
-          <Link href="/" onClick={() => setMenuOpen(false)}>Home</Link>
-          <Link href="/products" onClick={() => setMenuOpen(false)}>Products</Link>
-          <Link href="#" onClick={() => setMenuOpen(false)}>About</Link>
-          <Link href="#" onClick={() => setMenuOpen(false)}>FAQs</Link>
-          <Link href="#" onClick={() => setMenuOpen(false)}>Contact</Link>
+        <div className="flex flex-col w-full text-xl md:text-lg">
+          {navLinksDesktop.map((link) => (
+            <Link
+              key={link.label}
+              href={link.href}
+              onClick={() => setMenuOpen(false)}
+              className="hover:bg-gray-100 p-4"
+            >
+              {link.label}
+            </Link>
+          ))}
         </div>
 
         {/* Bottom Mobile Dropdown Section */}
@@ -40,15 +91,19 @@ const Navbar = () => {
           </div>
           {/* Icons */}
           <div className="text-2xl flex gap-14 justify-center">
-            <Link href={"/"}><FaFacebook /></Link >
-            <Link href={"/"}><FaInstagram /></Link >
-            <Link href={"/"}><FaTiktok /></Link >
+            <Link href={"/"}>
+              <FaFacebook />
+            </Link>
+            <Link href={"/"}>
+              <FaInstagram />
+            </Link>
+            <Link href={"/"}>
+              <FaTiktok />
+            </Link>
           </div>
           {/* Icons */}
         </div>
         {/* Bottom Mobile Dropdown Section */}
-
-
       </div>
 
       {/* Logo */}
@@ -66,8 +121,12 @@ const Navbar = () => {
       {/* Desktop Menu */}
       <ul className="hidden lg:flex gap-5 items-center font-medium text-lg text-[#6dc4b7] pl-8">
         <div className="flex items-center gap-5 lg:gap-10">
-          <Link href="/" className="cursor-pointer">Home</Link>
-          <Link href="/products" className="cursor-pointer">Products</Link>
+          <Link href="/" className="cursor-pointer">
+            Home
+          </Link>
+          <Link href="/products" className="cursor-pointer">
+            Products
+          </Link>
           <li className="cursor-pointer">About</li>
           <li className="cursor-pointer">FAQs</li>
           <li className="cursor-pointer">Contact</li>
