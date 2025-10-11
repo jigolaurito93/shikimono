@@ -5,15 +5,61 @@ import Link from "next/link";
 import { FaCartArrowDown } from "react-icons/fa6";
 import { CiUser, CiSearch } from "react-icons/ci";
 import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
+import { FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa";
+
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="flex w-full justify-between items-center py-4 px-12 lg:px-20 bg-white shadow-sm relative">
+    <div className="flex w-full justify-between items-center py-4 px-5 lg:px-20 bg-white shadow-sm relative font-m-plus-1">
+
+      {/* Mobile Menu Icon */}
+      <div className="lg:hidden text-2xl cursor-pointer" onClick={() => setMenuOpen(!menuOpen)}>
+        {menuOpen ? <RxCross2 className="text-[#6dc4b7]" /> : <RxHamburgerMenu className="text-[#6dc4b7]" />}
+      </div>
+
+      {/* Mobile Dropdown with transition */}
+      <div
+        className={`fixed top-[147px] left-0 h-[calc(100vh-107px)] w-full shadow-xl flex flex-col items-center justify-between py-10 font-medium text-lg lg:hidden transition-transform duration-500 ease-in-out z-50 ${menuOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
+      >
+        <div className="flex flex-col gap-8">
+          <Link href="/" onClick={() => setMenuOpen(false)}>Home</Link>
+          <Link href="/products" onClick={() => setMenuOpen(false)}>Products</Link>
+          <Link href="#" onClick={() => setMenuOpen(false)}>About</Link>
+          <Link href="#" onClick={() => setMenuOpen(false)}>FAQs</Link>
+          <Link href="#" onClick={() => setMenuOpen(false)}>Contact</Link>
+        </div>
+
+        {/* Bottom Mobile Dropdown Section */}
+        <div className="flex flex-col justify-start w-full py-6 px-4 gap-8 bg-[#6dc4b7]">
+          <div className="cursor-pointer flex items-center gap-3">
+            <CiUser className="text-2xl" />
+            <div>Log In</div>
+          </div>
+          {/* Icons */}
+          <div className="text-2xl flex gap-10">
+            <Link href={"/"}><FaFacebook /></Link >
+            <Link href={"/"}><FaInstagram /></Link >
+            <Link href={"/"}><FaTiktok /></Link >
+          </div>
+          {/* Icons */}
+        </div>
+        {/* Bottom Mobile Dropdown Section */}
+
+
+      </div>
+
       {/* Logo */}
-      <div className="w-5xl">
+      <div className="w-5xl flex justify-center">
         <Image src="/swathelogo.png" alt="logo" width={180} height={100} />
+      </div>
+
+      {/* Mobile Icons */}
+      <div className="flex gap-5 lg:hidden">
+        <CiSearch className="cursor-pointer text-2xl text-[#6dc4b7]" />
+        <FaCartArrowDown className="cursor-pointer text-2xl text-[#6dc4b7]" />
       </div>
 
       {/* Desktop Menu */}
@@ -30,22 +76,6 @@ const Navbar = () => {
           <CiSearch className="cursor-pointer" />
         </div>
       </ul>
-
-      {/* Mobile Menu Icon */}
-      <div className="lg:hidden text-3xl cursor-pointer" onClick={() => setMenuOpen(!menuOpen)}>
-        {menuOpen ? <RxCross2 /> : <RxHamburgerMenu />}
-      </div>
-
-      {/* Mobile Dropdown */}
-      {menuOpen && (
-        <div className="absolute top-20 left-0 w-full bg-white shadow-lg flex flex-col items-center gap-6 py-6 font-medium text-lg lg:hidden z-50">
-          <Link href="/" onClick={() => setMenuOpen(false)}>Home</Link>
-          <Link href="/products" onClick={() => setMenuOpen(false)}>Products</Link>
-          <div>About</div>
-          <div>FAQs</div>
-          <div>Contact</div>
-        </div>
-      )}
     </div>
   );
 };
