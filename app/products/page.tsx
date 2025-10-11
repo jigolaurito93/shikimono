@@ -1,13 +1,13 @@
 import React from "react";
-import { FaArrowRightLong } from "react-icons/fa6";
 import ProductPeek from "../components/ProductPeek";
+import { HiAdjustmentsHorizontal } from "react-icons/hi2";
 
 const Products = () => {
   const productList = [
     {
       image: "/prod1.png",
       subtitle: "Neutral Hues",
-      title: "Shikimono Mats (pre-order)",
+      title: "Shikimono Mats",
       price: "From ₱2000.00 PHP",
       colors: ["#000000", "#E63946", "#1D4ED8"], // black, red, blue
     },
@@ -21,7 +21,7 @@ const Products = () => {
     {
       image: "/prod2.png",
       subtitle: "Light Hues",
-      title: "Shikimono Mats (pre-order)",
+      title: "Shikimono Mats",
       price: "From ₱2000.00 PHP",
       colors: ["#D97706", "#92400E", "#FACC15"], // amber, brown, yellow
     },
@@ -48,16 +48,20 @@ const Products = () => {
     },
   ];
   return (
-    <div className="px-20 pt-10 pb-36">
-      <div className="flex justify-between py-12">
-        <div className="text-3xl font-semibold">Trending Products</div>
-        <div className="text-blue-900 text-lg font-medium flex gap-2 items-center">
-          <div className="">See everything</div>
-          <FaArrowRightLong />
-        </div>
+    <div className="px-6 lg:px-20 pt-10 pb-36">
+      <div className="text-3xl font-semibold w-full py-4 md:text-4xl">
+        Products
       </div>
 
-      <div className="grid grid-cols-4 gap-6 px-28">
+      <div className="w-full flex justify-between py-4 md:justify-end md:gap-6">
+        <div className="flex items-center gap-2">
+          <HiAdjustmentsHorizontal className="text-xl" />
+          Sort
+        </div>
+        <div>4 products</div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 py-6">
         {productList.map((p, i) => (
           <ProductPeek key={i} {...p} />
         ))}

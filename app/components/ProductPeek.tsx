@@ -9,15 +9,21 @@ interface ProductPeekProps {
   colors: string[];
 }
 
-const ProductPeek: React.FC<ProductPeekProps> = ({ image, subtitle, title, price, colors }) => {
+const ProductPeek: React.FC<ProductPeekProps> = ({
+  image,
+  subtitle,
+  title,
+  price,
+  colors,
+}) => {
   return (
-    <div className="flex flex-col gap-3 w-fit">
+    <div className="flex flex-col gap-3 w-full">
       <Image
         src={image}
         alt={title}
         width={250}
         height={250}
-        className="aspect-square w-[300px] object-cover rounded-lg"
+        className="aspect-square w-full object-cover rounded-sm"
       />
 
       <div className="text-center py-3">
