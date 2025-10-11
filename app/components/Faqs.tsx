@@ -10,10 +10,18 @@ import { IoIosCheckboxOutline } from "react-icons/io";
 import Link from "next/link";
 
 const Faqs = () => {
-  const [dropdownOpen, setDropdownOpen] = useState<number | null>(null);
+  const [dropdownOpen, setDropdownOpen] = useState<Set<number>>(new Set());
 
   const toggleDropdown = (index: number) => {
-    setDropdownOpen(dropdownOpen === index ? null : index);
+    setDropdownOpen(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(index)) {
+        newSet.delete(index);
+      } else {
+        newSet.add(index);
+      }
+      return newSet;
+    });
   };
 
   const faqItems = [
@@ -57,15 +65,15 @@ const Faqs = () => {
   ];
 
   return (
-    <div className="pb-16 md:py-12 lg:py-16">
+    <div className="py-12 md:py-12 lg:py-10 lg:px-12">
       <div className="w-full text-center text-xs py-4 font-m-plus-1">
         KNOW MORE ABOUT OUR PRODUCTS
       </div>
-      <div className="w-full text-center text-4xl pt-4 pb-12 font-m-plus-1">
+      <div className="w-full text-center text-4xl py-2 font-m-plus-1">
         FAQ&apos;s
       </div>
 
-      <div className="flex w-full justify-center font-m-plus-1 gap-2">
+      <div className="flex w-full justify-center font-m-plus-1 gap-2 py-4 relative">
         {/* LEFT SIDE (FAQ List) */}
         <div className="w-[600px] flex flex-col">
           {faqItems.map((item, index) => (
@@ -79,12 +87,12 @@ const Faqs = () => {
                   <div className="hover:underline">{item.title}</div>
                 </div>
                 <MdOutlineKeyboardArrowDown
-                  className={`text-2xl transition-transform duration-300 ${dropdownOpen === index ? "rotate-180" : ""
+                  className={`text-2xl transition-transform duration-300 ${dropdownOpen.has(index) ? "rotate-180" : ""
                     }`}
                 />
               </div>
 
-              {dropdownOpen === index && (
+              {dropdownOpen.has(index) && (
                 <div className="px-8 py-2 flex flex-col gap-4 text-gray-500 text-sm transition-all duration-300">
                   <div>{item.content}</div>
                   <Link
@@ -101,14 +109,14 @@ const Faqs = () => {
           ))}
         </div>
 
-        {/* RIGHT SIDE (IMAGE) */}
-        <div className="hidden lg:flex w-[500px]">
+        {/* RIGHT SIDE (IMAGE) - Fixed position */}
+        <div className="hidden lg:flex w-[500px] h-[500px] flex-shrink-0">
           <Image
             src="/prod3.png"
             alt="faq1"
             width={500}
             height={500}
-            className="object-cover rounded-lg"
+            className="object-cover rounded-lg w-full h-full"
           />
         </div>
       </div>
