@@ -23,15 +23,15 @@ const navLinksDesktop: NavLinksDesktop[] = [
   },
   {
     label: "About",
-    href: "/",
+    href: "/about-us",
   },
   {
     label: "FAQs",
-    href: "/",
+    href: "/faqs",
   },
   {
     label: "Contact",
-    href: "/",
+    href: "/contact-us",
   },
 ];
 
@@ -121,15 +121,11 @@ const Navbar = () => {
       {/* Desktop Menu */}
       <ul className="hidden lg:flex gap-5 items-center font-medium text-lg text-[#6dc4b7] pl-8">
         <div className="flex items-center gap-5 lg:gap-10">
-          <Link href="/" className="cursor-pointer">
-            Home
-          </Link>
-          <Link href="/products" className="cursor-pointer">
-            Products
-          </Link>
-          <li className="cursor-pointer">About</li>
-          <li className="cursor-pointer">FAQs</li>
-          <li className="cursor-pointer">Contact</li>
+          {navLinksDesktop.map((link) => (
+            <Link key={link.label} href={link.href} className="hover:underline">
+              {link.label}
+            </Link>
+          ))}
         </div>
 
         <div className="flex gap-6 text-2xl pl-20">
