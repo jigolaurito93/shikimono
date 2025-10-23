@@ -51,7 +51,7 @@ const Navbar = () => {
   }, [menuOpen]);
 
   return (
-    <div className="flex w-full justify-between items-center py-4 px-5 md:px-20 xl:px-28 bg-white shadow-sm relative font-m-plus-1">
+    <div className="flex w-full justify-between items-center py-1 px-5 md:px-20 xl:px-28 bg-white shadow-sm relative font-m-plus-1">
       {/* Mobile Menu Icon */}
       <div
         className="lg:hidden text-2xl cursor-pointer"
